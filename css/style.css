@@ -1,12 +1,8 @@
 body{
     margin-left: 270px;
     font-family: Arial, Helvetica, sans-serif;
+    background-color: rgb(255, 249, 241);
 }
-
-header{
-    
-}
-
 
 .contenedor-menu{
     display: flex;
@@ -32,4 +28,56 @@ header{
 
 .menu a:hover{
     background-color: #477cd2;
+}
+
+h1{
+    text-align: center;
+}
+
+.contenedor-crear-tascas{
+    margin: 50px;
+    padding: 40px;
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.pujar-arxiu{
+    display: flex;
+    gap: 15px;
+}
+
+.nova-tasca-button {
+    background-color: #5390f4;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+
+}
+.nova-tasca-button:hover{
+    background-color: #477cd2;
+}
+
+.pujar-arxiu-button{
+    background-color: #5390f4;
+    text-decoration: none;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.pujar-arxiu-button{
+    background-color: #477cd2;
+}
+
+.input-arxius {
+    width: 250px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
