@@ -71,7 +71,7 @@ h1{
     cursor: pointer;
     border-radius: 5px;
 }
-.pujar-arxiu-button{
+.pujar-arxiu-button:hover{
     background-color: #477cd2;
 }
 
