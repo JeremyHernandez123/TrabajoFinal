@@ -35,13 +35,17 @@
         <input type="date" id="data" class="input-crear-tasca" name="data" required>
 
         <label for="categoria">Categoria:</label>
-        <textarea id="categoria" class="input-crear-tasca" name="categoria" required></textarea>
+        <select name="categoria" id="categoria" class="input-crear-tasca" required>
+            <option value="Personal">Personal</option>
+            <option value="Treball">Treball</option>
+            <option value="Estudis">Estudis</option>
+        </select>
 
         <label for="prioritat">Prioritat:</label>
         <select name="prioritat" id="prioritat" class="input-crear-tasca" required>
-            <option value="Baixa">Baixa</option>
+        <!--<option value="Baixa">Baixa</option>
             <option value="Mitjana">Mitjana</option>
-            <option value="Alta">Alta</option>
+            <option value="Alta">Alta</option>  Poner categorias desde js-->
         </select>
 
         <button type="submit" class="crear-tasca-boton">Crear Tasca</button>
