@@ -117,3 +117,34 @@ h2{
 .crear-tasca-boton:hover{
     background-color: #477cd2;
 }
+
+/* pagina crear categorias */ 
+
+.formulari-crear-categoria{
+    background-color: white;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    width: 400px;
+    margin: 0 auto;
+    border-radius: 10px;
+}
+
+.input-crear-categorias{
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    height: 30px;
+}
+
+.crear-categoria-boton{
+    background-color: #5390f4;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.crear-categoria-boton:hover{
+    background-color: #477cd2;
+}

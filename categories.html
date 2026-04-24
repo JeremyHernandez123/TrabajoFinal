@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestió de Categories</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <header>
+        <section class="contenedor-menu"> 
+            <div class="titulo-menu">
+                <h2>Menu</h2>
+            </div>
+            <div class="menu">
+                <a href="index.html">Llista d'activitats</a>
+            </div>
+            <div class="menu">
+                <a href="crear-tasca.html">Crear tasca</a>
+            </div>
+            <div class="menu">
+                <a href="categories.html">Gestió de categories</a>
+            </div>
+    </section>
+    </header>
+    <h1>Gestió de Categories</h1>
+    <form action="/crear-categoria" method="POST" class="formulari-crear-categoria">
+        <label for="nom">Nom de la categoria:</label>
+        <input type="text" id="nom" class="input-crear-categorias" name="nom" required>
+
+        <button type="submit" class="crear-categoria-boton">Crear Categoria</button>
+    </form>
+
+    <h2>Llista de Categories Existents</h2>
+    <ul id="llista-categories">
+        <!-- Aquí se mostrarán las categorías existentes -->
+    </ul>
+
+    <script src="/js/categories.js"></script>
+</html>
