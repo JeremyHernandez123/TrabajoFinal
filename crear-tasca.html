@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Tasca</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <header>
+        <section class="contenedor-menu"> 
+            <div class="titulo-menu">
+                <h2>Menu</h2>
+            </div>
+            <div class="menu">
+                <a href="index.html">Llista d'activitats</a>
+            </div>
+            <div class="menu">
+                <a href="crear-tasca.html">Crear tasca</a>
+            </div>
+            <div class="menu">
+                <a href="categories.html">Gestió de categories</a>
+            </div>
+    </section>
+    </header>
+    <h1>Crear Nova Tasca</h1>
+    <form action="/crear-tasca" method="POST" class="formulari-crear-tasca">
+        <label for="titol">Títol:</label>
+        <input type="text" id="titol" class="input-crear-tasca" name="titol" required>
+
+        <label for="descripcio">Descripció:</label>
+        <textarea id="descripcio" class="input-crear-tasca" name="descripcio" required></textarea>
+
+        <label for="data">Data de venciment:</label>
+        <input type="date" id="data" class="input-crear-tasca" name="data" required>
+
+        <label for="categoria">Categoria:</label>
+        <textarea id="categoria" class="input-crear-tasca" name="categoria" required></textarea>
+
+        <label for="prioritat">Prioritat:</label>
+        <select name="prioritat" id="prioritat" class="input-crear-tasca" required>
+            <option value="Baixa">Baixa</option>
+            <option value="Mitjana">Mitjana</option>
+            <option value="Alta">Alta</option>
+        </select>
+
+        <button type="submit" class="crear-tasca-boton">Crear Tasca</button>
+    </form>
+</body>
+</html>

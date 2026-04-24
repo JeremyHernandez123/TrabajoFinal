@@ -85,3 +85,35 @@ h1{
 h2{
     margin: 50px;
 }
+
+
+/* Pagina crear tasques*/
+.formulari-crear-tasca{
+    background-color: white;
+    padding: 40px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 400px;
+    margin: 0 auto;
+}
+
+.input-crear-tasca{
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    height: 30px;
+}
+
+.crear-tasca-boton{
+    background-color: #5390f4;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.crear-tasca-boton:hover{
+    background-color: #477cd2;
+}
