@@ -1,0 +1,5 @@
+
+
+
+
+// añadir metodo pintar 
