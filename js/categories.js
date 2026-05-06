@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
     formulari.addEventListener('submit', function(event) {
         event.preventDefault(); 
 
-        const nom = document.getElementById('nom').value;
+        const nom = document.getElementById('nom').value.trim();
         const color = document.getElementById('color').value; 
         
         if(nom === ''){
