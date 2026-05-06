@@ -1,4 +1,4 @@
-export function mostrarCategoria(){
+export function getCategoria(){
     const dades = localStorage.getItem('categories');
     return JSON.parse(dades); 
 }
