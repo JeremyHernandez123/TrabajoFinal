@@ -1,25 +1,48 @@
-import { mostrarCategoria, guardarCategoria, getCategoria } from './storage.js';
+import { createElement } from "react";
+import { getCategoria, guardarCategoria } from "./storage";
 
-document.addEventListener('DOMContentLoaded', function() {    
-    const formulari = document.querySelector('.formulari-crear-categoria');
-    if(!formulari) return; 
+document.addEventListener("DOMContentLoaded", function() {
+    mostrarLListaCategories();  
 
-    formulari.addEventListener('submit', function(event) {
-        event.preventDefault(); 
+    document.getElementById("#formulari").addEventListener("submit", function(event){
+        const nom = document.getElementById("#nom").value; 
+        const color = document.getElementById("#color").value; 
 
-        const nom = document.getElementById('nom').value.trim();
-        const color = document.getElementById('color').value; 
-        
-        if(nom === ''){
-            alert('El nom de la categoria no pot estar buit.');
-            return;
+        if(nom === ""){
+            event.preventDefault();
+            alert("Has de posar un nom a la categoría"); 
+        } else  {
+            alert("Categoria creada"); 
         }
-        const categories = getCategoria(); 
-        const novaCategoria = {nom: nom, color: color}; 
-        categories.push(novaCategoria);
-        guardarCategoria(categories);
 
-        console.log('La categoria s\'ha creat:', novaCategoria);
-        mostrarCategoria();
-    });
+        const categoria = {nom:nom, color:color}; 
+        guardarCategoria(categoria); 
+    })
+
+
+    getCategoria(); 
+    mostrarCategoria()
+
 });
+
+
+function mostrarCategoria(){
+    const llista = document.getElementById("#llista-categories");  
+    const categories = getCategoria();
+    
+    if (categories.length === 0) {
+        llista.innerHTML = "<li>No hi ha categories.</li>";
+        return;
+    }
+
+    for(let i = 0; i < llista.length; i++) {
+        const arrayCategories = categories[i]; 
+        const li = createElement("li"); 
+        li.innerHTML = `
+            ${arrayCategories.nom}
+            <button> Eliminar   </button> 
+        `
+
+        llista.apendChild(li); 
+    }
+}

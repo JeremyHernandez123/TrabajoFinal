@@ -153,3 +153,26 @@ h2{
 .crear-categoria-boton:hover{
     background-color: #477cd2;
 }
+
+
+#llista-categories{
+    margin-left: 50px;   
+    padding-left: 20px;
+    list-style: none;
+        height: 20px;
+
+}
+
+#llista-categories li{
+    font-size: 20px;
+    background-color: #477cd2;
+    border-radius: 5px;
+    width: 50px;
+    text-align: center;
+
+}
+
+
+.eliminar-categoria{
+
+}
