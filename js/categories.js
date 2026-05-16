@@ -1,12 +1,13 @@
 import { createElement } from "react";
 import { getCategoria, guardarCategoria } from "./storage";
+import { Categoria } from "./models";
 
 document.addEventListener("DOMContentLoaded", function() {
     mostrarLListaCategories();  
 
     document.getElementById("#formulari").addEventListener("submit", function(event){
-        const nom = document.getElementById("#nom").value; 
-        const color = document.getElementById("#color").value; 
+        const nom = document.getElementById("nom").value; 
+        const color = document.getElementById("color").value; 
 
         if(nom === ""){
             event.preventDefault();
@@ -15,13 +16,20 @@ document.addEventListener("DOMContentLoaded", function() {
             alert("Categoria creada"); 
         }
 
-        const categoria = {nom:nom, color:color}; 
-        guardarCategoria(categoria); 
+        const categories = getCategoria();
+        for (let i = 0; i < categories.length; i++) {
+            if (categories[i].nom.toLowerCase() === nom.toLowerCase()) {
+                alert('Ja hi ha una categoria amb aquest nom');
+                return;
+            }
+        }
+        const novaCategoria = new Categoria(nom, color);
+        categories.push(novaCategoria);
+        guardarCategories(categories);
+
+        formulari.reset();
+        mostrarCategories();
     })
-
-
-    getCategoria(); 
-    mostrarCategoria()
 
 });
 
