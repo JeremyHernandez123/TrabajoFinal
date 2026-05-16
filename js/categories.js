@@ -5,7 +5,7 @@ import { Categoria } from "./models";
 document.addEventListener("DOMContentLoaded", function() {
     mostrarLListaCategories();  
 
-    document.getElementById("#formulari").addEventListener("submit", function(event){
+    document.getElementById("formulari").addEventListener("submit", function(event){
         const nom = document.getElementById("nom").value; 
         const color = document.getElementById("color").value; 
 
