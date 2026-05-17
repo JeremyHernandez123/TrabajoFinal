@@ -1,6 +1,7 @@
 
 import { getCategories } from "./storage.js";
 import { getTasques, guardarTasques } from "./storage.js";
+import { Tasca } from "./models.js";
 
 function carregarCategories() {
     const seleccionar = document.getElementById("categoria");
@@ -25,3 +26,33 @@ function carregarCategories() {
 }
 
 
+document.addEventListener("DOMContentLoaded", function() {
+    carregarCategories();
+
+    const formulari = document.querySelector(".formulari-crear-tasca");
+    if (!formulari) return;
+
+    formulari.addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        const titol = document.getElementById("titol").value.trim();
+        const descripcio = document.getElementById("descripcio").value.trim();
+        const data = document.getElementById("data").value;
+        const categoriaJSON = document.getElementById("categoria").value;
+        const prioritat = document.getElementById("prioritat").value;
+
+        if (!validarFormulari(titol, descripcio, data, categoriaJSON, prioritat)) {
+            return;
+        }
+    
+        const categoria = JSON.parse(categoriaJSON);
+        const novaTasca = new Tasca(titol, descripcio, data, categoria, prioritat);
+        const tasques = getTasques();
+        tasques.push(novaTasca);
+        guardarTasques(tasques);
+
+        alert("Tasca creada");
+        formulari.reset();
+        carregarCategories();
+    });
+});
