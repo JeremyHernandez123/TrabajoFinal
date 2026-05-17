@@ -1,9 +1,9 @@
 import { createElement } from "react";
-import { getCategoria, guardarCategoria } from "./storage";
+import { getCategories, guardarCategories } from "./storage";
 import { Categoria } from "./models";
 
 document.addEventListener("DOMContentLoaded", function() {
-    mostrarCategoria();  
+    mostrarCategories();  
     document.getElementById("formulari"); 
     formulari.addEventListener("submit", function(event){
         const nom = document.getElementById("nom").value; 
@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function() {
             alert("Categoria creada"); 
         }
 
-        const categories = getCategoria();
+        const categories = getCategories();
         for (let i = 0; i < categories.length; i++) {
             if (categories[i].nom.toLowerCase() === nom.toLowerCase()) {
                 alert('Ja hi ha una categoria amb aquest nom');
@@ -25,16 +25,16 @@ document.addEventListener("DOMContentLoaded", function() {
         }
         const novaCategoria = new Categoria(nom, color);
         categories.push(novaCategoria);
-        guardarCategoria(categories);
+        guardarCategories(categories);
 
-        mostrarCategoria();
+        mostrarCategories();
         formulari.reset();
     })
 
 });
 
 
-function mostrarCategoria(){
+function mostrarCategories(){
     const llista = document.getElementById("llista-categories");  
     const categories = getCategoria();
     
@@ -65,7 +65,7 @@ function mostrarCategoria(){
 }
 
 function eliminarCategoria(nom) {
-    let categories = getCategoria();
+    let categories = getCategories();
  
     const noves = [];
     for (let i = 0; i < categories.length; i++) {
@@ -74,6 +74,6 @@ function eliminarCategoria(nom) {
         }
     }
  
-    guardarCategoria(noves);
-    mostrarCategoria();
+    guardarCategories(noves);
+    mostrarCategories();
 }
