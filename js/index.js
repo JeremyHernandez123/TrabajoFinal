@@ -61,3 +61,24 @@ function crearTasca(tasca) {
 
     return div;
 }
+
+function marcarRealitzada(id, estat) {
+    const tasques = getTasques();
+    for (let i = 0; i < tasques.length; i++) {
+        if (tasques[i].id === id) {
+            tasques[i].realitzada = estat;
+            break;
+        }
+    }
+    guardarTasques(tasques);
+    mostrarTasques(tasques);
+}
+
+function eliminarTasca(id) {
+    const tasques = getTasques();
+    const novesTasques = tasques.filter(function(t) {
+        return t.id !== id;
+    });
+    guardarTasques(novesTasques);
+    mostrarTasques(novesTasques);
+}
