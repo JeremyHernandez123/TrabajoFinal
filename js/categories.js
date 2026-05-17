@@ -3,7 +3,7 @@ import { getCategoria, guardarCategoria } from "./storage";
 import { Categoria } from "./models";
 
 document.addEventListener("DOMContentLoaded", function() {
-    mostrarLListaCategories();  
+    mostrarCategoria();  
 
     document.getElementById("formulari").addEventListener("submit", function(event){
         const nom = document.getElementById("nom").value; 
@@ -28,29 +28,45 @@ document.addEventListener("DOMContentLoaded", function() {
         guardarCategories(categories);
 
         formulari.reset();
-        mostrarCategories();
+        mostrarCategoria();
     })
 
 });
 
 
 function mostrarCategoria(){
-    const llista = document.getElementById("#llista-categories");  
+    const llista = document.getElementById("llista-categories");  
     const categories = getCategoria();
     
+    llista.innerHTML = '';
+
     if (categories.length === 0) {
-        llista.innerHTML = "<li>No hi ha categories.</li>";
+        llista.innerHTML = '<li>No hi ha categories.</li>';
         return;
     }
 
-    for(let i = 0; i < llista.length; i++) {
+    for(let i = 0; i < categories.length; i++) {
         const arrayCategories = categories[i]; 
         const li = createElement("li"); 
         li.innerHTML = `
-            ${arrayCategories.nom}
-            <button> Eliminar   </button> 
-        `
-
+            <span>${categoria.nom}</span>
+            <button class="eliminar-categoria">Eliminar</button>
+        `;
         llista.apendChild(li); 
     }
+}
+
+
+function eliminarCategoria(nom) {
+    let categories = getCategoria();
+ 
+    const noves = [];
+    for (let i = 0; i < categories.length; i++) {
+        if (categories[i].nom !== nom) {
+            noves.push(categories[i]);
+        }
+    }
+ 
+    guardarCategoria(noves);
+    mostrarCategoria();
 }
