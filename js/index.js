@@ -27,3 +27,37 @@ function mostrarTasques(tasques) {
         contenidorAcabades.innerHTML = "<p>Encara no has completat cap tasca.</p>";
     }
 }
+
+function crearTasca(tasca) {
+
+    let div = document.createElement("div");
+    div.className = "tasca-pendent";
+
+    div.innerHTML = `
+        <h3>${tasca.titol}</h3>
+        <p>${tasca.descripcio}</p>
+        <p>Data: ${tasca.data}</p>
+        <p>Prioritat: ${tasca.prioritat}</p>
+
+        <input type="checkbox" class="check">
+        Feta
+
+        <button class="botoEliminar">Eliminar</button>
+    `;
+    let checkbox = div.querySelector(".check");
+    if (tasca.realitzada) {
+        checkbox.checked = true;
+    }
+
+    checkbox.addEventListener("change", function () {
+        marcarRealitzada(tasca.id, checkbox.checked);
+    });
+
+    let boto = div.querySelector(".botoEliminar");
+
+    boto.addEventListener("click", function () {
+        eliminarTasca(tasca.id);
+    });
+
+    return div;
+}
