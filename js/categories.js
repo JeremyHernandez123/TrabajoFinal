@@ -4,8 +4,8 @@ import { Categoria } from "./models";
 
 document.addEventListener("DOMContentLoaded", function() {
     mostrarCategoria();  
-
-    document.getElementById("formulari").addEventListener("submit", function(event){
+    document.getElementById("formulari"); 
+    formulari.addEventListener("submit", function(event){
         const nom = document.getElementById("nom").value; 
         const color = document.getElementById("color").value; 
 
@@ -25,10 +25,10 @@ document.addEventListener("DOMContentLoaded", function() {
         }
         const novaCategoria = new Categoria(nom, color);
         categories.push(novaCategoria);
-        guardarCategories(categories);
+        guardarCategoria(categories);
 
-        formulari.reset();
         mostrarCategoria();
+        formulari.reset();
     })
 
 });
@@ -52,7 +52,7 @@ function mostrarCategoria(){
             <span>${categoria.nom}</span>
             <button class="eliminar-categoria" data-nom="${categoria.nom}">Eliminar</button>
         `;
-        llista.apendChild(li); 
+        llista.appendChild(li); 
     }
 
     const botons = document.querySelectorAll('.eliminar-categoria');
@@ -63,7 +63,6 @@ function mostrarCategoria(){
         });
     }
 }
-
 
 function eliminarCategoria(nom) {
     let categories = getCategoria();
