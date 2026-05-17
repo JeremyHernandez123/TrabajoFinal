@@ -50,9 +50,17 @@ function mostrarCategoria(){
         const li = createElement("li"); 
         li.innerHTML = `
             <span>${categoria.nom}</span>
-            <button class="eliminar-categoria">Eliminar</button>
+            <button class="eliminar-categoria" data-nom="${categoria.nom}">Eliminar</button>
         `;
         llista.apendChild(li); 
+    }
+
+    const botons = document.querySelectorAll('.eliminar-categoria');
+    for (let i = 0; i < botons.length; i++) {
+        botons[i].addEventListener('click', function () {
+            const nom = this.getAttribute('data-nom');
+            eliminarCategoria(nom);
+        });
     }
 }
 
