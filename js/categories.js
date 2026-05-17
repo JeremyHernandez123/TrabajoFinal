@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 function mostrarCategories(){
     const llista = document.getElementById("llista-categories");  
-    const categories = getCategoria();
+    const categories = getCategories();
     
     llista.innerHTML = '';
 
