@@ -22,7 +22,7 @@ export function generarId() {
     const tasques = getTasques();
 
     if (tasques.length === 0) {
-        return "task-001";
+        return "tasca-001";
     }
 
     let maxNum = 0;
@@ -36,5 +36,5 @@ export function generarId() {
 
     const nouNum = maxNum + 1;
     const numFinal = String(nouNum).padStart(3, "0");
-    return "task-" + numFinal;
+    return "tasca-" + numFinal;
 }
