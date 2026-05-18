@@ -1,4 +1,3 @@
-import { createElement } from "react";
 import { getCategories, guardarCategories } from "./storage";
 import { Categoria } from "./models";
 

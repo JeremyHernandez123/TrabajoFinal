@@ -82,3 +82,42 @@ function eliminarTasca(id) {
     guardarTasques(novesTasques);
     mostrarTasques(novesTasques);
 }
+
+
+async function carregarTasquesDesdeJSON(nomArxiu) {
+    if(nomArxiu == ""){
+        alert("Posa un nom de fitxer");
+        return;
+    }
+
+    let ruta = "dades/" + nomArxiu;
+    let resposta;
+    let tasques;
+    try{
+        resposta = await fetch(ruta);
+        if(resposta.ok == false){
+            alert("No existeix el fitxer");
+            return;
+        }
+        tasques = await resposta.json();
+    }catch(error){
+        alert("Error en  carregar el fitxer");
+        return;
+    }
+
+    let tasquesGuardades = getTasques();
+    for(let i = 0; i < tasques.length; i++){
+
+        let existeix = false;
+        for(let j = 0; j < tasquesGuardades.length; j++){
+            if(tasques[i].id == tasquesGuardades[j].id){
+                existeix = true;
+            }
+        }
+        if(existeix == false){
+            tasquesGuardades.push(tasques[i]);
+        }
+    }
+    guardarTasques(tasquesGuardades);
+    mostrarTasques(tasquesGuardades);
+}
