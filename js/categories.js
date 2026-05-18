@@ -1,5 +1,5 @@
-import { getCategories, guardarCategories } from "./storage";
-import { Categoria } from "./models";
+import { getCategories, guardarCategories } from "./storage.js";
+import { Categoria } from "./models.js";
 
 document.addEventListener("DOMContentLoaded", function() {
     mostrarCategories();  
