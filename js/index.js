@@ -1,3 +1,5 @@
+import { getTasques, guardarTasques } from "./storage.js";
+
 function mostrarTasques(tasques) {
     const contenidorPendents = document.querySelector(".tasques-pendents");
     const contenidorAcabades = document.querySelector(".tasques-acabades");
