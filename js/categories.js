@@ -49,7 +49,8 @@ function mostrarCategories(){
         const categoria = categories[i]; 
         const li = document.createElement("li");
         li.innerHTML = `
-            <span>${categoria.nom}</span>
+            <span style="display:inline-block; background:${categoria.color}; width:20px; height:20px; border-radius: 20px; margin-right:8px;" ></span>
+            ${categoria.nom}
             <button class="eliminar-categoria" data-nom="${categoria.nom}">Eliminar</button>
         `;
         llista.appendChild(li); 

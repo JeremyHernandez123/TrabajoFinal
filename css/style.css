@@ -165,14 +165,8 @@ h2{
 
 #llista-categories li{
     font-size: 20px;
-    background-color: #477cd2;
     border-radius: 5px;
-    width: 50px;
+    width: 200px;
+    height: 70px;
     text-align: center;
-
-}
-
-
-.eliminar-categoria{
-
 }
