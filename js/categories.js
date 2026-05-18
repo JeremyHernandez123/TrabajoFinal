@@ -4,15 +4,15 @@ import { Categoria } from "./models.js";
 document.addEventListener("DOMContentLoaded", function() {
     mostrarCategories();  
     document.getElementById("formulari"); 
-    formulari.addEventListener("submit", function(event){
-        const nom = document.getElementById("nom").value; 
-        const color = document.getElementById("color").value; 
+    formulari.addEventListener("submit", function(event) {
+        event.preventDefault(); 
 
-        if(nom === ""){
-            event.preventDefault();
-            alert("Has de posar un nom a la categoría"); 
-        } else  {
-            alert("Categoria creada"); 
+        const nom = document.getElementById("nom").value;
+        const color = document.getElementById("color").value;
+
+        if (nom === "") {
+            alert("Has de posar un nom a la categoría");
+            return;
         }
 
         const categories = getCategories();
@@ -22,13 +22,14 @@ document.addEventListener("DOMContentLoaded", function() {
                 return;
             }
         }
+
         const novaCategoria = new Categoria(nom, color);
         categories.push(novaCategoria);
         guardarCategories(categories);
-
+        alert("Categoria creada");
         mostrarCategories();
         formulari.reset();
-    })
+    });
 
 });
 
