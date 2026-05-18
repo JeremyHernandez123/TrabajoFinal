@@ -46,7 +46,7 @@ function mostrarCategories(){
 
     for(let i = 0; i < categories.length; i++) {
         const arrayCategories = categories[i]; 
-        const li = createElement("li"); 
+        const li = document.createElement("li");
         li.innerHTML = `
             <span>${categoria.nom}</span>
             <button class="eliminar-categoria" data-nom="${categoria.nom}">Eliminar</button>
