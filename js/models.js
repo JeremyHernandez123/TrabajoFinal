@@ -1,4 +1,5 @@
 
+import { getTasques } from "./storage";
 export class Categoria {
     constructor(nom, color) {
         this.nom = nom;
