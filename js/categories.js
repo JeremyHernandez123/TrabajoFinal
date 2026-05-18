@@ -45,7 +45,7 @@ function mostrarCategories(){
     }
 
     for(let i = 0; i < categories.length; i++) {
-        const arrayCategories = categories[i]; 
+        const categoria = categories[i]; 
         const li = document.createElement("li");
         li.innerHTML = `
             <span>${categoria.nom}</span>
