@@ -121,3 +121,13 @@ async function carregarTasquesDesdeJSON(nomArxiu) {
     guardarTasques(tasquesGuardades);
     mostrarTasques(tasquesGuardades);
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+    mostrarTasques(getTasques());
+ 
+    const botoPujar = document.getElementById("boto-pujar");
+    botoPujar.addEventListener("click", function () {
+        const nomArxiu = document.getElementById("nom-arxiu").value;
+        carregarTasquesDesdeJSON(nomArxiu);
+    });
+});
