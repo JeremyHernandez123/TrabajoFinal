@@ -1,6 +1,11 @@
 import { getTasques, guardarTasques } from "./storage.js";
+import { mostrarGrafic } from "./grafics.js";
 
 function mostrarTasques(tasques) {
+    if (tasques == null) {
+        tasques = [];
+    }
+
     const contenidorPendents = document.querySelector(".tasques-pendents");
     const contenidorAcabades = document.querySelector(".tasques-acabades");
 
@@ -28,8 +33,8 @@ function mostrarTasques(tasques) {
     if (!acabades) {
         contenidorAcabades.innerHTML = "<p>Encara no has completat cap tasca.</p>";
     }
+    mostrarGrafic();
 }
-
 function crearTasca(tasca) {
 
     let div = document.createElement("div");
