@@ -25,6 +25,15 @@ function carregarCategories() {
     }
 }
 
+function validarFormulari(titol, descripcio, data, categoriaJSON, prioritat) {
+    if (titol === "" || descripcio === "" || data === "" || categoriaJSON === "" || prioritat === "") {
+        alert("Has d'omplir tots els camps");
+        return false;
+    }
+
+    return true;
+}
+
 
 document.addEventListener("DOMContentLoaded", function() {
     carregarCategories();
@@ -48,6 +57,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const categoria = JSON.parse(categoriaJSON);
         const novaTasca = new Tasca(titol, descripcio, data, categoria, prioritat);
         const tasques = getTasques();
+
         tasques.push(novaTasca);
         guardarTasques(tasques);
 
