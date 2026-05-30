@@ -1,6 +1,14 @@
 export function getCategories() {
     const dades = localStorage.getItem('categories');
-    return JSON.parse(dades);
+    if (dades == null) {
+        return [];
+    }
+    try {
+        return JSON.parse(dades);
+    } catch (error) {
+        localStorage.removeItem('categories');
+        return [];
+    }
 }
  
 export function guardarCategories(categories) {
@@ -9,7 +17,15 @@ export function guardarCategories(categories) {
 
 export function getTasques() {
     const dades = localStorage.getItem('tasques');
-    return JSON.parse(dades);
+    if (dades == null) {
+        return [];
+    }
+    try {
+        return JSON.parse(dades);
+    } catch (error) {
+        localStorage.removeItem('tasques');
+        return [];
+    }
 }
  
 export function guardarTasques(tasques) {
