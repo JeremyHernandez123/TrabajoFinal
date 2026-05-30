@@ -3,11 +3,11 @@ import { Categoria } from "./models.js";
 
 document.addEventListener("DOMContentLoaded", function() {
     mostrarCategories();  
-    document.getElementById("formulari"); 
+    const formulari = document.getElementById("formulari"); 
     formulari.addEventListener("submit", function(event) {
         event.preventDefault(); 
 
-        const nom = document.getElementById("nom").value;
+        const nom = document.getElementById("nom").value.trim();
         const color = document.getElementById("color").value;
 
         if (nom === "") {
